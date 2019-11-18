@@ -5,6 +5,7 @@
 body {
   background-color:#c2f9f1;
   font-family: sans-serif;
+  text-align: center;
 }
 
 .game {
@@ -12,35 +13,57 @@ body {
   height: 500px;
   padding: 30px;
   border-radius: 50px;
-  margin: 40px auto;
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
   background-color: #f9c2Cb;
-}
 
-.game__cell {
-  width: 147px;
-  height: 104px;
-  border: 3px solid black;
-  display: flex;
-  margin-left: 3px;
-  border-radius: 5px;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  font-size: 50px;
-  color: #fff;
-  font-weight: bold;
-  background-color: #f4473a;
-}
 
-.game__cell:last-of-type {
-  background-color: transparent;
-  border: none;
-}
+  &__title {
+    margin-top: 20px;
+    font-size: 56px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
 
-@for $i from 1 through 15  {
-  .game__cell:nth-child(#{$i})::after {
-    content: "#{$i}";
+  &__cell {
+    width: 147px;
+    height: 104px;
+    border: 3px solid black;
+    display: flex;
+    margin-left: 3px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 50px;
+    color: #fff;
+    font-weight: bold;
+    background-color: #f4473a;
+  }
+
+  &__cell:last-of-type {
+    background-color: transparent;
+    border: none;
+  }
+
+  @for $i from 1 through 15  {
+    .game__cell:nth-child(#{$i})::after {
+      content: "#{$i}";
+    }
+  }
+
+  &__button {
+    color: #fff;
+    font-weight: bold;
+    background-color: #f4473a;
+    border: 3px solid black;
+    border-radius: 5px;
+    height: 30px;
+    width: 100px;
+    margin-top: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 16px;
   }
 }

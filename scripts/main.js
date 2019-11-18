@@ -1,7 +1,7 @@
 'use strict'
 
 class Game {
-  constructor(event) {
+  constructor() {
     this.blocksPosition = [];
   }
 
@@ -50,11 +50,12 @@ class Game {
   };
 
   checkWin() {
-    if (this.blocksPosition === 
-        [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]) {
-          alert("GREATE!")
-          window.location.reload();
-      }
+    if (this.blocksPosition === [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]) {
+      alert("GREATE!")
+      window.location.reload();
+    }
+
+    return false;
   };
 
   createGameField() {
@@ -67,9 +68,20 @@ class Game {
     }
   };
 
+  resetField() {
+    while (game.firstChild) {
+      game.removeChild(game.firstChild);
+    }
+
+    this.blocksPosition = [];
+    this.randomNumber();
+    this.createGameField();
+  };
+
 }
 
 let game = document.getElementById("game");
+const reset = document.getElementById('button'); 
 
 let play = new Game();
 play.randomNumber();
@@ -79,3 +91,7 @@ play.createGameField();
 game.addEventListener('click', (event) => {
   play.moveBlock(event);
 });
+
+reset.addEventListener('click', () => {
+  play.resetField();
+})
