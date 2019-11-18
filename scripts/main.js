@@ -15,7 +15,6 @@ class Game {
   };
 
   moveBlock(event) {
-    console.log(this.target = event.target);
     this.target = event.target; 
     if (this.target.className !== 'game__cell') {
       return '';
@@ -51,13 +50,11 @@ class Game {
   };
 
   checkWin() {
-    for (let i = 1; i < this.blocksPosition.length; i++) {
-      if ((this.blocksPosition[i-1] - this.blocksPosition[i]) > 1) {
-        return false
+    if (this.blocksPosition === 
+        [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]) {
+          alert("GREATE!")
+          window.location.reload();
       }
-    }
-    alert("GREATE!")
-    window.location.reload();
   };
 
   createGameField() {
